@@ -55,7 +55,15 @@ type Series struct {
 	Length      *int        `json:"length,omitempty"`
 	Scope       *string     `json:"scope,omitempty"`
 	Expression  *string     `json:"expression,omitempty"`
+	Attributes  Attributes  `json:"attributes",omitempty`
 	Units       *UnitPair   `json:"unit,omitempty"`
+}
+type Attributes struct {
+	Forecast Forecast `json:"forecast"`
+}
+
+type Forecast struct {
+	Piece []string `json:"piece"`
 }
 
 // reqPostSeries from /api/v1/series
